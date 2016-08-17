@@ -26,15 +26,14 @@ class NotesApplication {
 			}
 	}
 //get note function	
-	getNote(note_id) {
-		if (note_id < this.notes.length && note_id > 0) {
+		getNote(note_id) {
+		if (note_id in this.notes.keys()) {
 			console.log(this.notes[note_id].note, "\n");
 			}
 		else{
 			console.log("ID not found!!!")
 			}
-}
-	
+}	
 //	create the text search function
 	search(search_text){
 		for(var note of this.notes) {
