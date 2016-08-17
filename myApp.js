@@ -20,10 +20,11 @@ class NotesApplication {
 //list notes function	
 	listNotes() {
 		for(var i = 0; i < this.notes.length; i++) {
-			console.log("Note ID:", i ,"\n", this.notes[i].note, "\n", "Author by ", this.notes[i].author, "\n");
+			console.log("Note ID:", i)
+			console.log(this.notes[i].note, "\n");
+			console.log("Author by", this.notes[i].author, "\n \n");
 			}
 	}
-
 //get note function	
 	getNote(note_id) {
 		if (note_id < this.notes.length && note_id > 0) {
@@ -36,15 +37,16 @@ class NotesApplication {
 	
 //	create the text search function
 	search(search_text){
-		for(var note in this.notes) {
-			var n = note[note_content].includes(search_text);
+		for(var note of this.notes) {
+			var n = note.note.includes(search_text);
 			if(n) {
-				console.log("Showing results for ", search_text, "/n");
-				getNote(note[note_id]);			
-				console.log("By Author ", note[author])
+				var i = this.notes.indexOf(note);
+				console.log("Showing results for '"+ search_text+"' \n");
+				console.log("Note ID:", i);
+				console.log(this.notes[i].note, "\n");
+				console.log("Author by", this.notes[i].author, "\n \n");
 				}
-		}
-	
+			}
 //function to delete note
 //	deleteNote(note_id){
 		
