@@ -5,36 +5,36 @@ class Note {
 		this.author = author;
 	}
 }
-
 // create the NotesApplication class
 class NotesApplication {
 	constructor() {
 		this.notes = [];
-	}
-//create note object and add to note list
+		}
+//create note_content and add to note list
 	create(note) {
 		if (note instanceof Note) {
 		this.notes.push(note);
+			}
 		}
-	}
-//create method to list notes	
+//list notes function	
 	listNotes() {
 		for(var i = 0; i < this.notes.length; i++) {
 			console.log("Note ID:", i)
 			console.log(this.notes[i].note, "\n");
 			console.log("Author by", this.notes[i].author, "\n");
 			}
-	}
-//create method to get note by id
+		}
+//get note function	
 	getNote(note_id) {
-		if (note_id < this.notes.length && note_id >= 0 && note_id % 1 === 0) {
+		//check if note_id exist in index list
+		if (note_id in Array.from(Array(this.notes.length).keys())) {
 			console.log(this.notes[note_id].note, "\n");
 			}
 		else{
 			console.log("ID not found!!! \n")
 			}
-}
-//	create the text search method
+		}
+//	create the text search function
 	search(search_text){
 		for(var note of this.notes) {
 			var n = note.note.includes(search_text);
@@ -47,9 +47,10 @@ class NotesApplication {
 				}
 			}
 		}
-//create method to delete note
+//function to delete note
 	deleteNote(note_id){
-		if (note_id < this.notes.length && note_id >= 0 && note_id % 1 === 0) {
+		//check if note_id exist in index list
+		if (note_id in Array.from(Array(this.notes.length).keys())) {
 			this.notes.splice(note_id, 1);
 			console.log("Note",note_id ,"successfully deleted \n")
 			}
@@ -57,11 +58,12 @@ class NotesApplication {
 			console.log("ID not found!!! \n")
 			}
 		}
-//create method to edit note
+//function to edit note
 	edit(note_id, new_content){
-		if (note_id < this.notes.length && note_id >= 0 && note_id % 1 === 0) {
+		//check if note_id exist in index list
+		if (note_id in Array.from(Array(this.notes.length).keys())) {
 			this.notes[note_id].note = new_content;
-			console.log("Change successfull \n")
+			console.log("Note", note_id, "changed successfully \n")
 			}
 		else{
 			console.log("ID not found!!! \n")
