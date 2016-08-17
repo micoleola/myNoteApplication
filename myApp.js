@@ -4,11 +4,19 @@ class NotesApplication {
 		this.notes = [];
 	}
 	
-	note_content(note) {
-		this.notes.push(note)
+	create(note_content) {
+		var note_content = 
+		this.notes.push(note_content)
 	}
 	
 	listNotes() {
+		for (var note in this.note){
+			note = {}
+		}
 		
 	}
+}
+
+
+	
 }
