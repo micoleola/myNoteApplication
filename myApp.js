@@ -1,11 +1,20 @@
-//create a note class
+/**
+ * Note Class to define a Note.
+ * @param {note} The content of the note.
+ * @param {author} The author of the note.
+ * @constructor
+  */
 class Note {
 	constructor(note, author) {
 		this.note = note;
 		this.author = author;
 	}
 }
-// create the NotesApplication class
+/**
+ * NoteApplication Class defining the application.
+ * @param {notes[<notes>]} List of notes added.
+ * @constructor
+  */
 class NotesApplication {
 	constructor() {
 		this.notes = [];
