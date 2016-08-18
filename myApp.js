@@ -27,7 +27,7 @@ class NotesApplication {
 //get note function	
 	getNote(note_id) {
 		//check if note_id exist in index list
-		if (note_id in Array.from(Array(this.notes.length).keys())) {
+		if (this.notes.hasOwnProperty(note_id)) {
 			console.log(this.notes[note_id].note, "\n");
 			}
 		else{
@@ -50,7 +50,7 @@ class NotesApplication {
 //function to delete note
 	deleteNote(note_id){
 		//check if note_id exist in index list
-		if (note_id in Array.from(Array(this.notes.length).keys())) {
+		if (this.notes.hasOwnProperty(note_id)) {
 			this.notes.splice(note_id, 1);
 			console.log("Note",note_id ,"successfully deleted \n")
 			}
@@ -61,7 +61,7 @@ class NotesApplication {
 //function to edit note
 	edit(note_id, new_content){
 		//check if note_id exist in index list
-		if (note_id in Array.from(Array(this.notes.length).keys())) {
+		if (this.notes.hasOwnProperty(note_id)) {
 			this.notes[note_id].note = new_content;
 			console.log("Note", note_id, "changed successfully \n")
 			}
