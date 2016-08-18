@@ -12,7 +12,7 @@ class Note {
 }
 /**
  * NoteApplication Class defining the application.
- * @param {notes[<notes>]} List of notes added.
+ * @param {notes[<notes>]} List of all notes in the array.
  * @constructor
   */
 class NotesApplication {
