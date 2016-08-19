@@ -55,7 +55,6 @@ class NotesApplication {
 /**
  * Searches through the list of note objects for a specified string and returns notes containing the text
  * @param {String} search_text - the string to search for.
- * @returns {Object} notes - returns the notes containing the search text
 */ 
 	search(search_text){
 		for(var note of this.notes) {
