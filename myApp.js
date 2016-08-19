@@ -1,7 +1,7 @@
 /**
- * Note Class to define a Note.
- * @param {note} The content of the note.
- * @param {author} The author of the note.
+ * Note Class to define a Note object.
+ * @param {String} note - the content of the note.
+ * @param {String} author - the author of the note.
  * @constructor
   */
 class Note {
@@ -11,21 +11,27 @@ class Note {
 	}
 }
 /**
- * NoteApplication Class defining the application.
- * @param {notes[<notes>]} List of all notes in the array.
+ * NoteApplication Class defining the collections of note.
+ * @param {Object[]} An array containing all notes.
  * @constructor
   */
 class NotesApplication {
 	constructor() {
 		this.notes = [];
 		}
-//create note_content and add to note list
+/**
+ * Creates an instance of the Note class and add to the array of notes.
+ * @param {Object} note - an instance of the Note class
+*/
 	create(note) {
 		if (note instanceof Note) {
 		this.notes.push(note);
 			}
 		}
-//list notes function	
+/**
+ * Creates an instance of the Note class and add to the array of notes.
+ * @param {Object} note - an instance of the Note class
+*/	
 	listNotes() {
 		for(var i = 0; i < this.notes.length; i++) {
 			console.log("Note ID:", i)
@@ -33,7 +39,10 @@ class NotesApplication {
 			console.log("Author by", this.notes[i].author, "\n");
 			}
 		}
-//get note function	
+/**
+ * Gets a note from the list of notes. 
+ * @param {Number} note_id - a key with which the note object is fetched.
+*/ 
 	getNote(note_id) {
 		//check if note_id exist in index list
 		if (this.notes.hasOwnProperty(note_id)) {
@@ -43,7 +52,11 @@ class NotesApplication {
 			console.log("ID not found!!! \n")
 			}
 		}
-//	create the text search function
+/**
+ * Searches through the list of note objects for a specified string and returns notes containing the text
+ * @param {String} search_text - the string to search for.
+ * @returns {Object} notes - returns the notes containing the search text
+*/ 
 	search(search_text){
 		for(var note of this.notes) {
 			var n = note.note.includes(search_text);
@@ -56,7 +69,10 @@ class NotesApplication {
 				}
 			}
 		}
-//function to delete note
+/**
+ * Deletes a note object from the list of notes by ID. 
+ * @param {Number} note_id - a key with which the note object is fetched.
+*/ 
 	deleteNote(note_id){
 		//check if note_id exist in index list
 		if (this.notes.hasOwnProperty(note_id)) {
@@ -67,8 +83,11 @@ class NotesApplication {
 			console.log("ID not found!!! \n")
 			}
 		}
-//function to edit note
-	edit(note_id, new_content){
+/**
+ * Modifies a note from the list of notes. 
+ * @param {Number} note_id - a key with which the note object is fetched.
+ * @param {String} new_content - the content that replaces the specified note content.
+*/ 	edit(note_id, new_content){
 		//check if note_id exist in index list
 		if (this.notes.hasOwnProperty(note_id)) {
 			this.notes[note_id].note = new_content;
